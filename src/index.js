@@ -40,7 +40,12 @@ function App() {
   };
 
   return (
-    <Security {...config} onAuthRequired={authHandler}>
+    <Security
+      issuer="https://dev-668428.okta.com/oauth2/default"
+      client_id="{0oapaknm6Do0rXAP84x6}"
+      {...config}
+      onAuthRequired={authHandler}
+    >
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
