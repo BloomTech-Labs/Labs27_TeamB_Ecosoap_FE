@@ -40,12 +40,7 @@ function App() {
   };
 
   return (
-    <Security
-      issuer="***REMOVED***"
-      client_id="***REMOVED***"
-      {...config}
-      onAuthRequired={authHandler}
-    >
+    <Security {...config} onAuthRequired={authHandler}>
       <Switch>
         <Route path="/login" component={LoginPage} />
         <Route path="/implicit/callback" component={LoginCallback} />
