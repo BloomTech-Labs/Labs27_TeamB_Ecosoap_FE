@@ -5,13 +5,11 @@ import Navbar from '../../common/Navbar';
 import './home.css';
 import Form from '../../common/Form';
 
-
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
   return (
-
     <div className="home">
-     <Navbar></Navbar>
+      <Navbar></Navbar>
       <h1>Hi {userInfo.name} Welcome Administrator</h1>
       <p>This is your user Dashboard.</p>
       <section className="header">
@@ -34,19 +32,7 @@ function RenderHomePage(props) {
               potenti. Sed auctor mi et nulla scelerisque ultrices. Phasellus id
               nisl mollis ligula tincidunt pellentesque. Integer commodo ornare
               ipsum, at commodo augue ultrices nec. Quisque pharetra ultrices
-              imperdiet. In hac habitasse platea dictumst. In condimentum
-              posuere turpis, at ornare ex posuere a. Nunc condimentum orci ut
-              neque varius, id ultricies ligula placerat. Duis finibus mollis
-              blandit. Aenean eu sem sit amet leo pellentesque rutrum. Integer
-              vitae semper quam. Maecenas maximus erat et velit condimentum
-              varius. Nullam orci augue, blandit et mi eget, rutrum mattis erat.
-              Donec at tempus libero. Aliquam maximus dolor eget scelerisque
-              consectetur. Nam in sagittis ipsum, ut condimentum leo. Fusce
-              auctor a ante facilisis pulvinar. Nulla elementum tempor augue vel
-              varius. Curabitur sollicitudin augue pretium pulvinar aliquam. In
-              mi erat, ultricies a tincidunt eu, efficitur ut nisl. Pellentesque
-              habitant morbi tristique senectus et netus et malesuada fames ac
-              turpis egestas.
+              imperdiet.
             </p>
           </div>
         </section>
