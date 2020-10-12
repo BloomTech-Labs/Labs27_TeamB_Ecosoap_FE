@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
+import Navbar from '../../common/Navbar';
 import './home.css';
 import Form from '../../common/Form';
+
 
 function RenderHomePage(props) {
   const { userInfo, authService } = props;
   return (
+
     <div className="home">
+     <Navbar></Navbar>
+      <h1>Hi {userInfo.name} Welcome Administrator</h1>
+      <p>This is your user Dashboard.</p>
       <section className="header">
         <div className="banner"></div>
         <div className="header-info"></div>
@@ -61,6 +67,7 @@ export default RenderHomePage;
           This is an example of a common example of how we'd like for you to
           approach components.
         </p>
+
         <p>
           <Link to="/profile-list">Profiles Example</Link>
         </p>
