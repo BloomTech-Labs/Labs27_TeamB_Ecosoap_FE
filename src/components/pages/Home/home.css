@@ -23,6 +23,10 @@
     align-items: center;
 }  
 
+.layout{
+  width: 100%
+}
+
 .header-info {
     display: flex;
     justify-content: center;
