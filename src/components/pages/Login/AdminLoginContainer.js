@@ -5,7 +5,7 @@ import * as logo from '../../../styles/logo.png';
 
 import { config } from '../../../utils/oktaConfig';
 
-const LoginContainer = () => {
+const AdminLoginContainer = () => {
   useEffect(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
@@ -36,7 +36,7 @@ const LoginContainer = () => {
       },
       i18n: {
         en: {
-          'primaryauth.title': 'Administrator login to Eco-Soap-Bank',
+          'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
           // change title for your app
         },
       },
@@ -65,4 +65,4 @@ const LoginContainer = () => {
   return <div id="sign-in-widget" />;
 };
 
-export default LoginContainer;
+export default AdminLoginContainer;
