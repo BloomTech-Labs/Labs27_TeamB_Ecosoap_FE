@@ -45,7 +45,7 @@ function App() {
       <Switch>
         <Route path="/login" component={BuyerLoginPage} />
         <Route path="/home" component={HomePage} />
-        <Route path="/form" component={Form} />
+
         <Route path="/implicit/callback" component={LoginCallback} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
