@@ -6,7 +6,12 @@ import * as logo from '../../../styles/logo.png';
 import { config } from '../../../utils/oktaConfig';
 
 const BuyerLoginContainer = () => {
+  // how can we check if user type is a buyer
+  // Buyer component level state here
+
   useEffect(() => {
+    // checking for if user type is Buyer
+
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
     const widget = new OktaSignIn({

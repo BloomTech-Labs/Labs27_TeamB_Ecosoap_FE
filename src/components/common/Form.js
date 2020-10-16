@@ -3,10 +3,12 @@ import React from 'react';
 import { FormInput, FormButton } from '../common';
 import { Form, Input, Button, InputNumber } from 'antd';
 import 'antd/dist/antd.css';
+import '../pages/Home/home.css';
 
 export const exampleForm = () => {
   return (
     <Form onSubmit={e => e.preventDefault()}>
+      <h1>Soap Order Form</h1>
       <Input
         placeholder="organizationName*"
         name="organizationName"
@@ -18,20 +20,22 @@ export const exampleForm = () => {
         labelId="Website: "
       />
       <Input placeholder="contactName*" name="name" labelId="Name: " />
-      <Input
-        placeholder="soapNumber*"
-        name="soapnumber"
-        labelId="Number of Soap drop: "
-      />
       <Input placeholder="contactPhone*" name="phone" labelId="Phone: " />
       <Input placeholder="email*" name="email" labelId="Email: " />
       <Input placeholder="address" name="address" labelId="Address: " />
       <Input placeholder="country*" name="country" labelId="Country: " />
+      <Input.TextArea placeholder="Description of Hygiene Situation in Community" />
       <Input.TextArea placeholder="Comment" />
-      <Input.TextArea placeholder="Description of Hygiene Situation in Community:" />
       <Form.Item
-        name={['user', 'age']}
-        label="Age"
+        name={['Beneficiaries']}
+        label="Beneficiaries"
+        rules={[{ type: 'number', min: 0, max: 99 }]}
+      >
+        <InputNumber />
+      </Form.Item>
+      <Form.Item
+        name={['Number of Soap']}
+        label="Quantity of Soap"
         rules={[{ type: 'number', min: 0, max: 99 }]}
       >
         <InputNumber />
@@ -54,7 +58,7 @@ export const antForm = () => {
         <Input />
       </Form.Item>
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" className="login-form-button">
           Submit
         </Button>
       </Form.Item>
