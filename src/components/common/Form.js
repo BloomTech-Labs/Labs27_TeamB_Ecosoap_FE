@@ -8,7 +8,7 @@ import '../pages/Home/home.css';
 export const exampleForm = () => {
   return (
     <Form onSubmit={e => e.preventDefault()}>
-      <h1>Soap Order Form</h1>
+      <h1>Soap Order Form.</h1>
       <Input
         placeholder="organizationName*"
         name="organizationName"
