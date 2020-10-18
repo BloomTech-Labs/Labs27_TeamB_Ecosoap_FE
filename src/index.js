@@ -14,6 +14,7 @@ import { NotFoundPage } from './components/pages/NotFound';
 import { ExampleListPage } from './components/pages/ExampleList';
 import { ProfileListPage } from './components/pages/ProfileList';
 import { BuyerLoginPage } from './components/pages/Login';
+import { AdminLoginPage } from './components/pages/Login';
 import Form from './components/common/Form';
 import { HomePage } from './components/pages/Home';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
@@ -37,15 +38,16 @@ function App() {
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
-    history.push('/login');
+    history.push('/Buyerlogin');
   };
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
-        <Route path="/login" component={BuyerLoginPage} />
+        <Route path="/Buyerlogin" component={BuyerLoginPage} />
+        <Route path="/Adminlogin" component={AdminLoginPage} />
         <Route path="/home" component={HomePage} />
-        <Route path="/form" component={Form} />
+
         <Route path="/implicit/callback" component={LoginCallback} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute

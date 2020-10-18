@@ -30,13 +30,13 @@ const AdminLoginContainer = () => {
         custom: [
           {
             text: 'Login as Buyer',
-            href: 'https://example.com/what-is-okta',
+            href: '/Buyerlogin',
           },
         ],
       },
       i18n: {
         en: {
-          'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
+          'primaryauth.title': 'Administrator login to Eco-Soap-Bank',
           // change title for your app
         },
       },

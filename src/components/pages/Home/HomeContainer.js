@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-import RenderHomePage from './RenderHomePage';
-
+import RenderHomePage from './RenderHomePageBuyer';
+import RenderHomePageAdmin from './RenderHomePageAdmin';
 function HomeContainer({ LoadingComponent }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
@@ -11,7 +11,7 @@ function HomeContainer({ LoadingComponent }) {
 
   useEffect(() => {
     let isSubscribed = true;
-
+    // if buyer true maybe check the state here???
     memoAuthService
       .getUser()
       .then(info => {
@@ -19,7 +19,7 @@ function HomeContainer({ LoadingComponent }) {
         // isSubscribed is a boolean toggle that we're using to clean up our useEffect.
         if (isSubscribed) {
           setUserInfo(info);
-          console.log(info, '#########');
+          console.log(info.email, '#########');
         }
       })
       .catch(err => {
@@ -35,7 +35,7 @@ function HomeContainer({ LoadingComponent }) {
         <LoadingComponent message="Fetching user profile..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderHomePage userInfo={userInfo} authService={authService} />
+        <RenderHomePageAdmin userInfo={userInfo} authService={authService} />
       )}
     </>
   );

@@ -5,12 +5,12 @@ import Navbar from '../../common/Navbar';
 import './home.css';
 import Form from '../../common/Form';
 
-function RenderHomePage(props) {
+function RenderHomePageBuyer(props) {
   const { userInfo, authService } = props;
   return (
     <div className="home">
       <Navbar></Navbar>
-      <h1>Hi {userInfo.name} Welcome Administrator</h1>
+      <h1>Hi {userInfo.name} Welcome Buyer</h1>
       <p>This is your user Dashboard.</p>
       <section className="header">
         <div className="banner"></div>
@@ -43,7 +43,7 @@ function RenderHomePage(props) {
     </div>
   );
 }
-export default RenderHomePage;
+export default RenderHomePageBuyer;
 {
   /* 
         <div>
