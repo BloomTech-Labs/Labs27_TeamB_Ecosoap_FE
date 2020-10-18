@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -34,6 +34,13 @@ function App() {
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
 
+  const [isAdmin, setAdmin] = useState(false);
+  const toggleAdmin = () => {
+    setAdmin(!isAdmin);
+    console.log('Toggling');
+    history.push('/');
+  };
+
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
@@ -43,7 +50,16 @@ function App() {
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
-        <Route path="/login" component={BuyerLoginPage} />
+        <Route
+          path="/login" // component={BuyerLoginPage}
+          render={props => (
+            <BuyerLoginPage
+              {...props}
+              toggleAdmin={() => toggleAdmin()}
+              isAdmin={isAdmin}
+            />
+          )}
+        />
         <Route path="/home" component={HomePage} />
 
         <Route path="/implicit/callback" component={LoginCallback} />
