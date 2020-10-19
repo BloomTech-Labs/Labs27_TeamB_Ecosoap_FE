@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import * as logo from '../../../styles/logo.png';
-
+import LoginType from '../../common/LoginType';
 import { config } from '../../../utils/oktaConfig';
 
-const BuyerLoginContainer = () => {
+const BuyerLoginContainer = props => {
   useEffect(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
@@ -36,7 +36,8 @@ const BuyerLoginContainer = () => {
       },
       i18n: {
         en: {
-          'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
+          // 'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
+          'primaryauth.title': props.title,
           // change title for your app
         },
       },
@@ -47,6 +48,7 @@ const BuyerLoginContainer = () => {
         scopes,
       },
     });
+    widget.remove();
 
     widget.renderEl(
       { el: '#sign-in-widget' },
@@ -62,7 +64,12 @@ const BuyerLoginContainer = () => {
     );
   }, []);
 
-  return <div id="sign-in-widget" />;
+  return (
+    <div>
+      <div id="sign-in-widget" />
+      <LoginType {...props} />
+    </div>
+  );
 };
 
 export default BuyerLoginContainer;

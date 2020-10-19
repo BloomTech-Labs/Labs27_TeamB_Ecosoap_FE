@@ -18,7 +18,8 @@ const getAuthHeader = authState => {
   if (!authState.isAuthenticated) {
     throw new Error('Not authenticated');
   }
-  return { Authorization: `Bearer ${authState.idToken}` };
+  // return { Authorization: `Bearer ${authState.idToken}` };
+  return { Authorization: `Bearer ${authState.accessToken}` };
 };
 
 const getDSData = (url, authState) => {
@@ -38,6 +39,38 @@ const apiAuthGet = authHeader => {
   return axios.get(apiUrl, { headers: authHeader });
 };
 
+const getBuyers = authState => {
+  try {
+    var auth = getAuthHeader(authState);
+    return axios({
+      url: 'http://35.208.9.187:9192/web-api-2',
+      method: 'post',
+      data: {
+        query: `
+          {
+            buyers {
+              contactName
+              }
+            }
+          `,
+      },
+    })
+      .then(result => {
+        // console.log(result)
+        return result.data.data.buyers;
+      })
+      .catch(err => {
+        console.log(err);
+        return err;
+      });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
 const getProfileData = authState => {
   try {
     return apiAuthGet(getAuthHeader(authState)).then(response => response.data);
@@ -49,4 +82,4 @@ const getProfileData = authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData };
+export { sleep, getExampleData, getProfileData, getDSData, getBuyers };

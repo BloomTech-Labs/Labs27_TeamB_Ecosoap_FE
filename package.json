@@ -32,6 +32,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "cracoConfig": "craco.config.js",
   "lint-staged": {
     "**/*.js": [
       "eslint --fix",
