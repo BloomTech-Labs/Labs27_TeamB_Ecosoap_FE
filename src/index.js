@@ -38,6 +38,7 @@ function App() {
 
   const [isAdmin, setAdmin] = useState(false);
   const toggleAdmin = () => {
+    console.log('toggling');
     setAdmin(!isAdmin);
     if (isAdmin) {
       setTitle('Admin login to Eco-Soap-Bank');
@@ -79,6 +80,7 @@ function App() {
           component={() => (
             <HomePage
               LoadingComponent={LoadingComponent}
+              // isAdmin={() => () => isAdmin}
               isAdmin={() => isAdmin}
             />
           )}
