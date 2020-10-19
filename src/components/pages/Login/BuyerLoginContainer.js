@@ -36,7 +36,8 @@ const BuyerLoginContainer = props => {
       },
       i18n: {
         en: {
-          'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
+          // 'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
+          'primaryauth.title': props.title,
           // change title for your app
         },
       },
@@ -47,6 +48,7 @@ const BuyerLoginContainer = props => {
         scopes,
       },
     });
+    widget.remove();
 
     widget.renderEl(
       { el: '#sign-in-widget' },

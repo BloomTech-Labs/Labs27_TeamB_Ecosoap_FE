@@ -37,25 +37,11 @@ function LoginType(props) {
     // return () => (isSubscribed = false);
   }, []);
 
-  if (props.isAdmin) {
-    return (
-      <div>
-        <a
-          onClick={() => {
-            props.toggleAdmin();
-          }}
-        >
-          Login as Buyer
-        </a>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <a onClick={() => props.toggleAdmin()}>Login as Buyer</a>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <a onClick={() => props.toggleAdmin()}>Toggle Admin/Buyer</a>
+    </div>
+  );
 }
 
 export default LoginType;

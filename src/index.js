@@ -19,6 +19,8 @@ import { HomePage } from './components/pages/Home';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
+import RenderHomePageAdmin from './components/pages/Home/RenderHomePageAdmin';
+import RenderHomePageBuyer from './components/pages/Home/RenderHomePageBuyer';
 
 ReactDOM.render(
   <Router>
@@ -37,7 +39,11 @@ function App() {
   const [isAdmin, setAdmin] = useState(false);
   const toggleAdmin = () => {
     setAdmin(!isAdmin);
-    console.log('Toggling');
+    if (isAdmin) {
+      setTitle('Admin login to Eco-Soap-Bank');
+    } else {
+      setTitle('Buyer login to Eco-Soap-Bank');
+    }
     history.push('/');
   };
 
@@ -47,6 +53,8 @@ function App() {
     history.push('/login');
   };
 
+  const [getTitle, setTitle] = useState('Buyer login to Eco-Soap-Bank');
+
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
@@ -55,19 +63,25 @@ function App() {
           render={props => (
             <BuyerLoginPage
               {...props}
+              title={() => getTitle}
               toggleAdmin={() => toggleAdmin()}
               isAdmin={isAdmin}
             />
           )}
         />
-        <Route path="/home" component={HomePage} />
+        {/* <Route path="/home" component={HomePage} /> */}
 
         <Route path="/implicit/callback" component={LoginCallback} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
           exact
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+          component={() => (
+            <HomePage
+              LoadingComponent={LoadingComponent}
+              isAdmin={() => isAdmin}
+            />
+          )}
         />
         <SecureRoute path="/example-list" component={ExampleListPage} />
         <SecureRoute path="/profile-list" component={ProfileListPage} />

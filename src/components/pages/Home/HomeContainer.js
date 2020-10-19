@@ -4,7 +4,12 @@ import { useOktaAuth } from '@okta/okta-react';
 import { getBuyers } from '../../../api';
 import RenderHomePage from './RenderHomePageBuyer';
 import RenderHomePageAdmin from './RenderHomePageAdmin';
-function HomeContainer({ LoadingComponent }) {
+import RenderHomePageBuyer from './RenderHomePageBuyer';
+function HomeContainer({ LoadingComponent, state, isAdmin }) {
+  console.log('Is Admin.........');
+  // console.log(this.props.state.isAdmin);
+  // console.log(state.isAdmin);
+  console.log(isAdmin());
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
   // eslint-disable-next-line
@@ -43,8 +48,12 @@ function HomeContainer({ LoadingComponent }) {
       {authState.isAuthenticated && !userInfo && (
         <LoadingComponent message="Fetching user profile..." />
       )}
-      {authState.isAuthenticated && userInfo && (
+      {authState.isAuthenticated && userInfo && isAdmin() && (
         <RenderHomePageAdmin userInfo={userInfo} authService={authService} />
+      )}
+
+      {authState.isAuthenticated && !isAdmin() && userInfo && (
+        <RenderHomePageBuyer userInfo={userInfo} authService={authService} />
       )}
     </>
   );
