@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-
 import { getBuyers } from '../../../api';
-import RenderHomePage from './RenderHomePageBuyer';
+
 import RenderHomePageAdmin from './RenderHomePageAdmin';
 import RenderHomePageBuyer from './RenderHomePageBuyer';
 function HomeContainer({ LoadingComponent, state, isAdmin }) {

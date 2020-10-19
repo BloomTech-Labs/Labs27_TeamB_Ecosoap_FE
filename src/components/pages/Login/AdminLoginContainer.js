@@ -36,7 +36,7 @@ const AdminLoginContainer = () => {
       },
       i18n: {
         en: {
-          'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
+          'primaryauth.title': 'admin login to Eco-Soap-Bank',
           // change title for your app
         },
       },

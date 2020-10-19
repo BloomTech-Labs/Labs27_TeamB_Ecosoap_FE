@@ -71,6 +71,38 @@ const getBuyers = authState => {
   }
 };
 
+const getAdmins = authState => {
+  try {
+    var auth = getAuthHeader(authState);
+    return axios({
+      url: 'http://35.208.9.187:9192/web-api-2',
+      method: 'post',
+      data: {
+        query: `
+          {
+            administrators {
+              email
+              }
+            }
+          `,
+      },
+    })
+      .then(result => {
+        // console.log(result)
+        return result.data.data.admins;
+      })
+      .catch(err => {
+        console.log(err);
+        return err;
+      });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
 const getProfileData = authState => {
   try {
     return apiAuthGet(getAuthHeader(authState)).then(response => response.data);
