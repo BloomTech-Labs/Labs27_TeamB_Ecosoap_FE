@@ -29,7 +29,7 @@ const AdminLoginContainer = () => {
         custom: [
           {
             text: 'Login as Buyer',
-            href: 'https://example.com/what-is-okta',
+            href: '/Buyerlogin',
           },
         ],
       },

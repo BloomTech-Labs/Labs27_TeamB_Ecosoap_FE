@@ -4,7 +4,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import * as logo from '../../../styles/logo.png';
 import { config } from '../../../utils/oktaConfig';
 
-const BuyerLoginContainer = props => {
+const BuyerLoginContainer = () => {
   useEffect(() => {
     const { pkce, issuer, clientId, redirectUri, scopes } = config;
     // destructure your config so that you can pass it into the required fields in your widget.
@@ -29,7 +29,7 @@ const BuyerLoginContainer = props => {
         custom: [
           {
             text: 'Login as Administrator',
-            href: 'https://example.com/what-is-okta',
+            href: '/Adminlogin',
           },
         ],
       },
