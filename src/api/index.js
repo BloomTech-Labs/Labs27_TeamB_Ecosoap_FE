@@ -114,4 +114,11 @@ const getProfileData = authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData, getBuyers };
+export {
+  sleep,
+  getExampleData,
+  getProfileData,
+  getDSData,
+  getBuyers,
+  getAdmins,
+};

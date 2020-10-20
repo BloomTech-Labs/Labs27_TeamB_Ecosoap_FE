@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import * as logo from '../../../styles/logo.png';
-
 import { config } from '../../../utils/oktaConfig';
 
 const AdminLoginContainer = () => {
@@ -36,7 +35,7 @@ const AdminLoginContainer = () => {
       },
       i18n: {
         en: {
-          'primaryauth.title': 'admin login to Eco-Soap-Bank',
+          'primaryauth.title': 'Admin login to Eco-Soap-Bank',
           // change title for your app
         },
       },

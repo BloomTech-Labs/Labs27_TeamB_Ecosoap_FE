@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
-import { getBuyers } from '../../../api';
+import { getAdmins } from '../../../api';
 import RenderHomePageAdmin from './RenderHomePageAdmin';
 import RenderHomePageBuyer from './RenderHomePageBuyer';
 
-function HomeContainer({ LoadingComponent }) {
+function AdminContainer({ LoadingComponent }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
-  // eslint-disable-next-line
+
   const [memoAuthService] = useMemo(() => [authService], []);
 
   useEffect(() => {
     // authState.accessToken
 
-    getBuyers(authState).then(buyers => {
-      console.log(buyers);
+    getAdmins(authState).then(admins => {
+      console.log(admins);
     });
 
     // console.log(authState.accessToken);
@@ -54,4 +54,4 @@ function HomeContainer({ LoadingComponent }) {
   );
 }
 
-export default HomeContainer;
+export default AdminContainer;

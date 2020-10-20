@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import * as logo from '../../../styles/logo.png';
-import LoginType from '../../common/LoginType';
 import { config } from '../../../utils/oktaConfig';
 
 const BuyerLoginContainer = props => {
@@ -36,8 +35,7 @@ const BuyerLoginContainer = props => {
       },
       i18n: {
         en: {
-          // 'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
-          'primaryauth.title': props.title,
+          'primaryauth.title': 'Buyer login to Eco-Soap-Bank',
           // change title for your app
         },
       },
@@ -67,7 +65,6 @@ const BuyerLoginContainer = props => {
   return (
     <div>
       <div id="sign-in-widget" />
-      <LoginType {...props} />
     </div>
   );
 };
