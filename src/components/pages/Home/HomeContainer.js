@@ -3,9 +3,11 @@ import { useOktaAuth } from '@okta/okta-react';
 
 import RenderHomePage from './RenderHomePageBuyer';
 import RenderHomePageAdmin from './RenderHomePageAdmin';
+
 function HomeContainer({ LoadingComponent }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
+  console.log(userInfo);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
 

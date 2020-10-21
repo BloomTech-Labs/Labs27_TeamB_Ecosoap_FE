@@ -24,8 +24,11 @@ export const exampleForm = () => {
       <Input placeholder="email*" name="email" labelId="Email: " />
       <Input placeholder="address" name="address" labelId="Address: " />
       <Input placeholder="country*" name="country" labelId="Country: " />
-      <Input.TextArea placeholder="Description of Hygiene Situation in Community" />
-      <Input.TextArea placeholder="Comment" />
+      <Input.TextArea
+        placeholder="Description of Hygiene Situation in Community"
+        name="description"
+      />
+      <Input.TextArea placeholder="Comment" name="Comment" />
       <Form.Item
         name={['Beneficiaries']}
         label="Beneficiaries"
