@@ -167,4 +167,6 @@ export {
   getDSData,
   getBuyers,
   getAdmins,
+  getPrice,
+  getOrders,
 };
