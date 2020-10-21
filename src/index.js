@@ -42,26 +42,30 @@ function App() {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
     history.push('/buyerlogin');
+    history.push('/adminlogin');
   };
 
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
-        <Route path="/Buyerlogin" component={BuyerLoginPage} />
         <Route path="/adminlogin" component={AdminLoginPage} />
+        <Route path="/buyerlogin" component={BuyerLoginPage} />
 
         <Route path="/implicit/callback" component={LoginCallback} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
+
         <SecureRoute
           path="/"
           exact
           component={() => <HomePage LoadingComponent={LoadingComponent} />}
         />
+
         <SecureRoute
           path="/"
           exact
           component={() => <AdminPage LoadingComponent={LoadingComponent} />}
         />
+
         <SecureRoute path="/example-list" component={ExampleListPage} />
         <SecureRoute path="/profile-list" component={ProfileListPage} />
         <SecureRoute path="/datavis" component={ExampleDataViz} />

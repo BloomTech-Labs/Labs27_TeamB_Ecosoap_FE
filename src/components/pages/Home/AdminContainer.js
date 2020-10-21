@@ -46,10 +46,6 @@ function AdminContainer({ LoadingComponent }) {
       {authState.isAuthenticated && userInfo && (
         <RenderHomePageAdmin userInfo={userInfo} authService={authService} />
       )}
-
-      {authState.isAuthenticated && userInfo && (
-        <RenderHomePageBuyer userInfo={userInfo} authService={authService} />
-      )}
     </>
   );
 }

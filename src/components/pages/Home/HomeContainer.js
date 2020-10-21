@@ -44,10 +44,6 @@ function HomeContainer({ LoadingComponent }) {
         <LoadingComponent message="Fetching user profile..." />
       )}
       {authState.isAuthenticated && userInfo && (
-        <RenderHomePageAdmin userInfo={userInfo} authService={authService} />
-      )}
-
-      {authState.isAuthenticated && userInfo && (
         <RenderHomePageBuyer userInfo={userInfo} authService={authService} />
       )}
     </>

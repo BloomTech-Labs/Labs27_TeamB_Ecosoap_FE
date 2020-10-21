@@ -29,7 +29,7 @@ const BuyerLoginContainer = () => {
         custom: [
           {
             text: 'Login as Administrator',
-            href: '/Adminlogin',
+            href: '/adminlogin',
           },
         ],
       },
