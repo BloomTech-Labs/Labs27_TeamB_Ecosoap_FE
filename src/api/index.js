@@ -39,27 +39,18 @@ const apiAuthGet = authHeader => {
   return axios.get(apiUrl, { headers: authHeader });
 };
 
-const getPrice = authState => {
-  try {
-    var auth = getAuthHeader(authState);
-    return axios({
-      url: 'http://35.208.9.187:9192/web-api-2',
-      method: 'post',
+const getPrice = fields => {
+  axios
+    .post(
+      'https://labs27-ecosoap-teamb-api.herokuapp.com/purchase/save-order',
+      fields
+    )
+    .then(res => {
+      console.log(res.data);
     })
-      .then(result => {
-        // console.log(result)
-        return result;
-      })
-      .catch(err => {
-        console.log(err);
-        return err;
-      });
-  } catch (error) {
-    return new Promise(() => {
-      console.log(error);
-      return [];
+    .catch(err => {
+      console.log(err);
     });
-  }
 };
 
 const getOrders = authState => {
