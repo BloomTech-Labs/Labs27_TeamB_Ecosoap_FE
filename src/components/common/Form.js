@@ -5,6 +5,7 @@ import { Form, Input, Button, InputNumber } from 'antd';
 import 'antd/dist/antd.css';
 import '../pages/Home/home.css';
 import { postOrder } from '../../api/index';
+import { getPrice } from '../../api/index';
 
 const ExampleForm = props => {
   const [orderform, setOrderForm] = useState({
@@ -19,6 +20,7 @@ const ExampleForm = props => {
 
   const formSubmit = e => {
     e.preventDefault();
+    getPrice(orderform);
     postOrder(orderform);
   };
 
