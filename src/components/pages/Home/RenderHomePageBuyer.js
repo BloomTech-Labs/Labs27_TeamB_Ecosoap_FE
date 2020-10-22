@@ -23,7 +23,7 @@ function RenderHomePageBuyer(props) {
             <div className="form">
               <Form></Form>
             </div>
-            <p className="app-info">
+            <p className="form-message">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               non mi nec augue consectetur venenatis tempus et metus. Duis
               suscipit convallis consectetur. Sed ut ullamcorper ligula. Nam nec
