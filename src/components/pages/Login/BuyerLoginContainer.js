@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import * as logo from '../../../styles/logo.png';
-import LoginType from '../../common/LoginType';
 import { config } from '../../../utils/oktaConfig';
 
 const BuyerLoginContainer = props => {
@@ -67,7 +66,6 @@ const BuyerLoginContainer = props => {
   return (
     <div>
       <div id="sign-in-widget" />
-      <LoginType {...props} />
     </div>
   );
 };
