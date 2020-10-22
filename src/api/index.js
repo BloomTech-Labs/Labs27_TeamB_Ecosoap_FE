@@ -39,6 +39,33 @@ const apiAuthGet = authHeader => {
   return axios.get(apiUrl, { headers: authHeader });
 };
 
+// post order
+const postOrder = fields => {
+  axios
+    .post(
+      'https://labs27-ecosoap-teamb-api.herokuapp.com/purchase/save-order',
+      fields
+    )
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+//get price
+const getPrice = fields => {
+  axios
+    .post('https://labs27-ecosoap-teamb-api.herokuapp.com/purchase', fields)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
 const getBuyers = authState => {
   try {
     var auth = getAuthHeader(authState);
@@ -71,6 +98,38 @@ const getBuyers = authState => {
   }
 };
 
+const getAdmins = authState => {
+  try {
+    var auth = getAuthHeader(authState);
+    return axios({
+      url: 'http://35.208.9.187:9192/web-api-2',
+      method: 'post',
+      data: {
+        query: `
+          {
+            administrators {
+              email
+              }
+            }
+          `,
+      },
+    })
+      .then(result => {
+        // console.log(result)
+        return result.data.data.admins;
+      })
+      .catch(err => {
+        console.log(err);
+        return err;
+      });
+  } catch (error) {
+    return new Promise(() => {
+      console.log(error);
+      return [];
+    });
+  }
+};
+
 const getProfileData = authState => {
   try {
     return apiAuthGet(getAuthHeader(authState)).then(response => response.data);
@@ -82,4 +141,13 @@ const getProfileData = authState => {
   }
 };
 
-export { sleep, getExampleData, getProfileData, getDSData, getBuyers };
+export {
+  sleep,
+  getExampleData,
+  getProfileData,
+  getDSData,
+  getBuyers,
+  getAdmins,
+  getPrice,
+  postOrder,
+};

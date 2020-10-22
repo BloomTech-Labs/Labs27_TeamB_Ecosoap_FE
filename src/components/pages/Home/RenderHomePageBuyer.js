@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'antd';
 import Navbar from '../../common/Navbar';
 import './home.css';
 import Form from '../../common/Form';
@@ -23,11 +21,16 @@ function RenderHomePageBuyer(props) {
             <div className="form">
               <Form></Form>
             </div>
-            <p className="app-info">
-              <h2>Profile</h2>
-              <h2>Name: {userInfo.name}</h2>
-              <h2>Email: {userInfo.email}</h2>
-              <h2>Location: {userInfo.locale}</h2>
+            <p className="form details ">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              non mi nec augue consectetur venenatis tempus et metus. Duis
+              suscipit convallis consectetur. Sed ut ullamcorper ligula. Nam nec
+              volutpat tellus. Curabitur fringilla bibendum neque quis
+              consectetur. Donec mattis purus et ornare tincidunt. Suspendisse
+              potenti. Sed auctor mi et nulla scelerisque ultrices. Phasellus id
+              nisl mollis ligula tincidunt pellentesque. Integer commodo ornare
+              ipsum, at commodo augue ultrices nec. Quisque pharetra ultrices
+              imperdiet.
             </p>
           </div>
         </section>
@@ -39,31 +42,3 @@ function RenderHomePageBuyer(props) {
   );
 }
 export default RenderHomePageBuyer;
-{
-  /* 
-        <div>
-        <h1>Hi {userInfo.name} Welcome to Labs Basic SPA</h1>
-        </div>
-        <p>
-          This is an example of a common example of how we'd like for you to
-          approach components.
-        </p>
-
-        <p>
-          <Link to="/profile-list">Profiles Example</Link>
-        </p>
-        <p>
-          <Link to="/example-list">Example List of Items</Link>
-        </p>
-        <p>
-          <Link to="/datavis">Data Visualizations Example</Link>
-        </p> */
-}
-
-{
-  /* <p>
-          <Button type="primary" onClick={() => authService.logout()}>
-            Logout
-          </Button>
-        </p> */
-}

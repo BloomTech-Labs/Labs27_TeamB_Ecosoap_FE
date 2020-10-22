@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useRouteMatch, useHistory } from 'react-router-dom';
+import React from 'react';
 import Navbar from '../../common/Navbar';
 import './home.css';
-import RenderProfileListPage from '../ProfileList/RenderProfileListPage';
 
 function RenderHomePageAdmin(props) {
   const { userInfo, authService } = props;
