@@ -61,7 +61,7 @@ function App() {
         />
 
         <SecureRoute
-          path="/"
+          path="/admin"
           exact
           component={() => <AdminPage LoadingComponent={LoadingComponent} />}
         />

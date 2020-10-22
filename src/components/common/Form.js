@@ -1,7 +1,6 @@
 import '../../styles/theme-overrides';
 import React, { useState } from 'react';
-import { FormInput, FormButton } from '../common';
-import { Form, Input, Button, InputNumber } from 'antd';
+import { Form, Input, Button } from 'antd';
 import 'antd/dist/antd.css';
 import '../pages/Home/home.css';
 import { postOrder } from '../../api/index';
@@ -34,6 +33,7 @@ const ExampleForm = props => {
   return (
     <Form onSubmit={formSubmit}>
       <h1>Soap Order Form</h1>
+
       <Input
         placeholder="organizationName*"
         name="organization_name"
@@ -49,7 +49,6 @@ const ExampleForm = props => {
         value={orderform.contact_name}
         onChange={e => onChangeHandler(e)}
       />
-
       <Input
         placeholder="email*"
         name="contact_email"

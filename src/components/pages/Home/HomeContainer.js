@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import { getBuyers } from '../../../api';
-import RenderHomePageAdmin from './RenderHomePageAdmin';
 import RenderHomePageBuyer from './RenderHomePageBuyer';
 
 function HomeContainer({ LoadingComponent }) {
   const { authState, authService } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
+  console.log(userInfo);
   // eslint-disable-next-line
   const [memoAuthService] = useMemo(() => [authService], []);
 

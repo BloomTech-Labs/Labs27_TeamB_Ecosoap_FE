@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'antd';
 import Navbar from '../../common/Navbar';
 import './home.css';
 import Form from '../../common/Form';
@@ -23,7 +21,7 @@ function RenderHomePageBuyer(props) {
             <div className="form">
               <Form></Form>
             </div>
-            <p className="form-message">
+            <p className="form details ">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
               non mi nec augue consectetur venenatis tempus et metus. Duis
               suscipit convallis consectetur. Sed ut ullamcorper ligula. Nam nec

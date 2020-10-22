@@ -59,7 +59,7 @@ const getPrice = fields => {
   axios
     .post('https://labs27-ecosoap-teamb-api.herokuapp.com/purchase', fields)
     .then(res => {
-      console.log(res.data);
+      console.log(res);
     })
     .catch(err => {
       console.log(err);
