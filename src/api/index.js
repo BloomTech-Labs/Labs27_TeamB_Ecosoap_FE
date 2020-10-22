@@ -40,7 +40,7 @@ const apiAuthGet = authHeader => {
 };
 
 // post order
-const getPrice = fields => {
+const postOrder = fields => {
   axios
     .post(
       'https://labs27-ecosoap-teamb-api.herokuapp.com/purchase/save-order',
@@ -55,7 +55,7 @@ const getPrice = fields => {
 };
 
 //get price
-const getOrders = fields => {
+const getPrice = fields => {
   axios
     .post('https://labs27-ecosoap-teamb-api.herokuapp.com/purchase', fields)
     .then(res => {
@@ -149,5 +149,5 @@ export {
   getBuyers,
   getAdmins,
   getPrice,
-  getOrders,
+  postOrder,
 };
