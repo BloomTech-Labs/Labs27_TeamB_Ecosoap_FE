@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -19,6 +19,8 @@ import { HomePage } from './components/pages/Home';
 import { ExampleDataViz } from './components/pages/ExampleDataViz';
 import { config } from './utils/oktaConfig';
 import { LoadingComponent } from './components/common';
+import RenderHomePageAdmin from './components/pages/Home/RenderHomePageAdmin';
+import RenderHomePageBuyer from './components/pages/Home/RenderHomePageBuyer';
 
 ReactDOM.render(
   <Router>
@@ -34,24 +36,54 @@ function App() {
   // React Router has a nifty useHistory hook we can use at this level to ensure we have security around our routes.
   const history = useHistory();
 
+  const [isAdmin, setAdmin] = useState(false);
+  const toggleAdmin = () => {
+    console.log('toggling');
+    setAdmin(!isAdmin);
+    if (isAdmin) {
+      setTitle('Admin login to Eco-Soap-Bank');
+    } else {
+      setTitle('Buyer login to Eco-Soap-Bank');
+    }
+    history.push('/');
+  };
+
   const authHandler = () => {
     // We pass this to our <Security /> component that wraps our routes.
     // It'll automatically check if userToken is available and push back to login if not :)
     history.push('/login');
   };
 
+  const [getTitle, setTitle] = useState('Buyer login to Eco-Soap-Bank');
+
   return (
     <Security {...config} onAuthRequired={authHandler}>
       <Switch>
-        <Route path="/login" component={BuyerLoginPage} />
-        <Route path="/home" component={HomePage} />
+        <Route
+          path="/login" // component={BuyerLoginPage}
+          render={props => (
+            <BuyerLoginPage
+              {...props}
+              title={() => getTitle}
+              toggleAdmin={() => toggleAdmin()}
+              isAdmin={isAdmin}
+            />
+          )}
+        />
+        {/* <Route path="/home" component={HomePage} /> */}
 
         <Route path="/implicit/callback" component={LoginCallback} />
         {/* any of the routes you need secured should be registered as SecureRoutes */}
         <SecureRoute
           path="/"
           exact
-          component={() => <HomePage LoadingComponent={LoadingComponent} />}
+          component={() => (
+            <HomePage
+              LoadingComponent={LoadingComponent}
+              // isAdmin={() => () => isAdmin}
+              isAdmin={() => isAdmin}
+            />
+          )}
         />
         <SecureRoute path="/example-list" component={ExampleListPage} />
         <SecureRoute path="/profile-list" component={ProfileListPage} />
