@@ -8,7 +8,6 @@ import { getPrice } from '../../api/index';
 
 const ExampleForm = props => {
   const [orderform, setOrderForm] = useState({
-    buyer_id: '',
     organization_name: '',
     contact_name: '',
     contact_email: '',
